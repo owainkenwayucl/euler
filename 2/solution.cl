@@ -6,19 +6,13 @@
 ; To run this, (load "solution.cl") then (sol 4000000)
 
 ; Function to do our loop and sum.
-(defun sol (n) (let (
-	(sum 0)
-	(prevnum 0)
-	(currnum 1)
-	(nextnum 0)) 
 
-	(loop while (<= currnum n) do
-		(if (evenp currnum) (setq sum (+ sum currnum)))
-		(setq nextnum (+ prevnum currnum))
-		(setq prevnum currnum)
-		(setq currnum nextnum)
-		
-	)
-	sum
+; Significantly re-written as per discussion here:
+; https://twitter.com/RainerJoswig/status/948602262062092289
+(defun sol (n) 
+	(loop for currnum = 0 then nextnum
+ 	      and nextnum = 1 then (+ currnum nextnum)
+	      while (< currnum n) 
+	      when (evenp currnum) sum currnum
 	)
 )
