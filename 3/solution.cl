@@ -4,7 +4,7 @@
 ; The largest prime factor of 13195 is 29 (5,7,13)
 ; What is the largest prime factor of 600851475143 ?
 
-; To run this, (load "solutions.cl") then (sol 600851475143)
+; To run this, (load "solution.cl") then (sol 600851475143)
 
 ; Function that checks if n divides x
 (defun divides (x n) (= (nth-value 1 (floor (/ x n))) 0))
@@ -19,7 +19,7 @@
 )
 
 ; Function that returns n if prime, 0 if not.
-(defun isprime (n) (let ((result '())) (if (= (list-length (factors n)) 0) n 0)))
+(defun isprime (n) (if (= (list-length (factors n)) 0) n 0))
 
 ; grab the first item of a sorted list of prime factors.
 (defun sol (n) (car (sort (map 'list #'isprime (remove-if #'evenp (factors n))) '>)))
