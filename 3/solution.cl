@@ -9,7 +9,7 @@
 ; Function that checks if n divides x
 (defun divides (x n) (= (mod x n) 0))
 
-; Function that generates all the factors of n
+; Function that generates a list of all the integer factors of n
 (defun factors (n) (loop for x from 2 to (ceiling (sqrt n)) if (divides n x) append (list x (/ n x))))
 
 ; Function that returns n if prime, 0 if not.
