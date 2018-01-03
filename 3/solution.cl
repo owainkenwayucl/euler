@@ -10,7 +10,7 @@
 (defun divides (x n) (= (mod x n) 0))
 
 ; Function that generates all the factors of n
-(defun factors (n) (remove-if #'null (loop for x from 2 to (ceiling (sqrt n)) collect (if (divides n x) x) collect (if (divides n x) (/ n x)))))
+(defun factors (n) (loop for x from 2 to (ceiling (sqrt n)) if (divides n x) append (list x (/ n x))))
 
 ; Function that returns n if prime, 0 if not.
 (defun isprime (n) (if (not (factors n)) n 0))
