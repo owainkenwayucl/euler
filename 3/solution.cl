@@ -7,19 +7,13 @@
 ; To run this, (load "solution.cl") then (sol 600851475143)
 
 ; Function that checks if n divides x
-(defun divides (x n) (= (nth-value 1 (floor (/ x n))) 0))
+(defun divides (x n) (= (mod x n) 0))
 
 ; Function that generates all the factors of n
-(defun factors (n) (let ((result '()))
-	(loop for x from 2 to (ceiling (sqrt n)) do
-		(if (divides n x) (setq result (append result (list x (/ n x)))))
-	)
-	result
-	)
-)
+(defun factors (n) (remove-if #'null (loop for x from 2 to (ceiling (sqrt n)) collect (if (divides n x) x) collect (if (divides n x) (/ n x)))))
 
 ; Function that returns n if prime, 0 if not.
-(defun isprime (n) (if (= (list-length (factors n)) 0) n 0))
+(defun isprime (n) (if (not (factors n)) n 0))
 
 ; grab the first item of a sorted list of prime factors.
 (defun sol (n) (car (sort (map 'list #'isprime (remove-if #'evenp (factors n))) '>)))
