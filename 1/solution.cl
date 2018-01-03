@@ -8,9 +8,9 @@
 ; Function to give us the value to add for this number.  This is the number
 ; if it is divisible by 3 or 5, or 0 if not.
 (defun divok (x)
-	(if (= (nth-value 1 (floor (/ x 3))) 0)
+	(if (= (mod x 3) 0)
 		x	
-		(if (= (nth-value 1 (floor (/ x 5))) 0)
+		(if (= (mod x 5) 0)
 			x
 			0
 		)
@@ -18,6 +18,4 @@
 )
 
 ; Function to do our loop and sum.
-(defun sol (n) 
-	(apply #'+ (loop for x from 1 to (- n 1) collect (+ (divok x))))
-)
+(defun sol (n) (loop for x from 1 to (- n 1) sum (+ (divok x))))
