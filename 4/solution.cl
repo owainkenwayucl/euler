@@ -7,11 +7,11 @@
 
 ; To run (load "solution.cl") and then (sol 3).
 
-; Function that returns T if in is a palindrome or nil if not.
+; Function that returns n if n is a palindrome or 0 if not.
 
 ; What I've done here is convert the number to a string and reverse it, then back
 ; to a number.  If the result is = the original it's a palindrome.  
-(defun ispalindrome (n) (if (= n (parse-integer (reverse (write-to-string n)))) T nil))
+(defun ispalindrome (n) (if (= n (parse-integer (reverse (write-to-string n)))) n 0))
 
 ; Get the largest palindrome from the list of palindromes from numbers of n.
 
@@ -27,7 +27,7 @@
 (defun sol (n)
 	(let ((l (expt 10 (- n 1))) (u  (- (expt 10 n) 1) ))
 		(loop for x from l to u maximize
-			(loop for y from l to u if (ispalindrome (* x y)) maximize (* x y)) 
+			(loop for y from l to u maximize (ispalindrome (* x y))) 
 		)
 	)
 )
