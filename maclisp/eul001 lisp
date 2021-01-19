@@ -21,4 +21,3 @@
 
 ; Version using loop macros
 (defun soll (n) (loop for x from 1 to (- n 1) sum (+ (divok x))))
-*
