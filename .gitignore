@@ -1,0 +1,9 @@
+# draft stuff
+*/*.works
+*/bad/*
+
+# tests
+*/test.cl
+
+# data files
+22/names.txt
