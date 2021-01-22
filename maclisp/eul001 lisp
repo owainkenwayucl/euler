@@ -1,4 +1,4 @@
-(defun mod (x y) (remainder x y))
+(fasload suport)
 
 (defun divok (x)
         (if (= (mod x 3) 0)
