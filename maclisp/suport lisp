@@ -1,1 +1,3 @@
 (defun mod (x y) (remainder x y))
+
+(defun ceiling (x) (if (greaterp x (fix x)) (+ 1 (fix x)) (fix x)))
