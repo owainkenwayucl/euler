@@ -30,3 +30,18 @@
 ; search in n! since that is the product of all numbers up to n.
 (defun sol (n) (loop for i from n to (fact n) if (ok i n) return i))
 
+; Time our work.
+(defun bencheul (n)
+   (terpri)
+   (setq tbase base)
+   (setq base 10.)
+
+   (setq t0 (time))
+   (setq r1 (sol n))
+   (setq t1 (time))
+   (terpri)
+   (princ "      Result: ")(princ r1)(terpri)
+   (princ "Time elapsed: ")(princ (-$ t1 t0))(princ " seconds")
+   (terpri)
+   (setq base tbase)
+)
