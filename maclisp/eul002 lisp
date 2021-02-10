@@ -21,3 +21,6 @@
         )
 )
 
+; Time our work.
+(fasload bench)
+(defun bencheul (n) (bench #'sol n) 'DONE)

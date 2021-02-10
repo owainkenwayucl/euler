@@ -30,3 +30,7 @@
 ; search in n! since that is the product of all numbers up to n.
 (defun sol (n) (loop for i from n to (fact n) if (ok i n) return i))
 
+; Time our work.
+(fasload bench)
+(defun bencheul (n) (bench #'sol n) 'DONE)
+

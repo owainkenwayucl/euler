@@ -21,3 +21,7 @@
 
 ; Version using loop macros
 (defun soll (n) (loop for x from 1 to (- n 1) sum (+ (divok x))))
+
+; Time our work.
+(fasload bench)
+(defun bencheul (n) (bench #'sol n)(bench #'soll n) 'DONE)
