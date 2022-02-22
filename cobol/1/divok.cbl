@@ -19,6 +19,6 @@
           IF divfive IS EQUAL TO 0 THEN
              MOVE x to isok
           END-IF.
-       EXIT PROGRAM divok.
+       EXIT PROGRAM.
 
 
