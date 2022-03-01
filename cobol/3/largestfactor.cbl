@@ -18,13 +18,15 @@
        PROCEDURE DIVISION USING n, f, m.
           MOVE 0 TO f.
           MOVE m TO temp2
-          ADD 1 TO temp2
-          PERFORM VARYING x FROM 2 BY 1
-             UNTIL x IS GREATER THAN OR EQUAL TO temp2
+          PERFORM VARYING x FROM temp2 BY -1
+             UNTIL x IS LESS THAN  2
              CALL 'divides' USING n, x, temp
              IF temp IS EQUAL TO 1 THEN
                 IF x IS GREATER THAN f THEN
                    MOVE x TO f
+                 ELSE
+      * If we start getting smaller values of x we are over the hump so exit.
+                    NEXT SENTENCE
                 END-IF
              END-IF
              DISPLAY "LF> " x " " temp " " temp2
