@@ -4,14 +4,14 @@
 
        DATA DIVISION.
           WORKING-STORAGE SECTION.
-             01 x USAGE IS BINARY-LONG UNSIGNED.
-             01 temp USAGE IS BINARY-LONG UNSIGNED.
+             01 x USAGE IS BINARY-DOUBLE UNSIGNED.
+             01 temp USAGE IS BINARY-DOUBLE UNSIGNED.
              01 temp2 USAGE IS FLOAT-LONG.
 
           LINKAGE SECTION.
-             01 n USAGE IS BINARY-LONG UNSIGNED.
-             01 f USAGE IS BINARY-LONG UNSIGNED.
-             01 m USAGE IS BINARY-LONG UNSIGNED.
+             01 n USAGE IS BINARY-DOUBLE UNSIGNED.
+             01 f USAGE IS BINARY-DOUBLE UNSIGNED.
+             01 m USAGE IS BINARY-DOUBLE UNSIGNED.
 
       * Works out the largest factor of n that's less than or equal to m,
       * stores in f. 
@@ -27,5 +27,6 @@
                    MOVE x TO f
                 END-IF
              END-IF
+             DISPLAY "LF> " x " " temp " " temp2
           END-PERFORM.
        EXIT PROGRAM.
